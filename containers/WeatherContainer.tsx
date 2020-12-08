@@ -1,13 +1,9 @@
-import React, { FC, useCallback, useEffect } from 'react'
+import React, { FC } from 'react'
 import { StyleSheet, TextInput, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import City from '../components/City'
-import {
-  onCityChange,
-  addCity,
-  removeCity,
-} from '../redux/weather.actions'
-import { IRootState } from '../store'
+import { onCityChange, addCity, removeCity } from '../redux/weather.actions'
+import { IRootState } from '../rootReducer'
 
 const CityContainer: FC<Props> = ({
   city,
@@ -16,7 +12,7 @@ const CityContainer: FC<Props> = ({
   isLoading,
   onCityChange,
   addCity,
-  removeCity,
+  removeCity
 }) => {
   return (
     <View style={styles.container}>
@@ -63,7 +59,7 @@ const mapStateToProps = ({ weather }: IRootState) => ({
 const mapDispatchToProps = {
   onCityChange,
   addCity,
-  removeCity,
+  removeCity
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CityContainer)
