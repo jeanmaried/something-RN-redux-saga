@@ -14,6 +14,8 @@ export default class WeatherSagas {
     yield put(setLoading(false))
   }
 
+  hi(){}
+
   static *watchAddCityAsync() {
     yield takeEvery(ActionTypes.ADD_CITY, WeatherSagas.addCitySaga)
   }
