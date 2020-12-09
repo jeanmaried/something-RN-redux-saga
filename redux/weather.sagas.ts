@@ -1,12 +1,16 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
 import ActionTypes, { addCity, setLoading, setWeather } from './weather.actions'
-import { getWeatherData } from './weather.service'
+import WeatherAPI from './weather.service'
 
 export default class WeatherSagas {
   static *addCitySaga({ payload: city }: ReturnType<typeof addCity>) {
     yield put(setLoading(true))
-    const res = yield call(getWeatherData, city)
-    yield put(setWeather({ city, weather: res }))
+    try {
+      const res = yield call(WeatherAPI.getWeatherData, city)
+      yield put(setWeather({ city, weather: res }))
+    } catch (e) {
+      console.log(e)
+    }
     yield put(setLoading(false))
   }
 

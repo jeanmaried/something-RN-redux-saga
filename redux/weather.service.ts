@@ -1,11 +1,11 @@
-import API from '../api';
+import API from '../api'
 
-export async function getWeatherData(city: string) {
+export default class WeatherAPI {
+  static async getWeatherData(city: string) {
     return await API.get('', {
-            params:
-                {
-                    q: city,
-                }
-        }
-    )
+      params: {
+        q: city
+      }
+    })
+  }
 }

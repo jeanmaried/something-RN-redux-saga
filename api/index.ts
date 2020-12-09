@@ -7,7 +7,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   function (config): AxiosRequestConfig {
-    config.params['APP_ID'] = APP_ID
+    config.params['APPID'] = APP_ID
     return config
   },
   function (error) {
