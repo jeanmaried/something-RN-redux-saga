@@ -14,6 +14,10 @@ export default class WeatherSagas {
     yield put(setLoading(false))
   }
 
+  test(){}
+
+  test2(){}
+
   hi(){}
 
   static *watchAddCityAsync() {
